@@ -16,17 +16,12 @@ then
       mkdir ~/.ssh
     fi
     ssh-keyscan github.com >> ~/.ssh/known_hosts
-    if [ ! -d .git ]
-    then
-      echo 'No existing git found'
-    else
-      rm -R -f .git
-      echo 'Existing git removed'
-    fi
     url="git@github.com:master-repo-ai/$student_id.git"
     if [ -d $student_id ]
     then
+      cd $student_id
       GIT_SSH_COMMAND="ssh -i $key_file" git pull $url master
+      cd ../
     else
       GIT_SSH_COMMAND="ssh -i $key_file" git clone $url
     fi
