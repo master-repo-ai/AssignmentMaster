@@ -20,7 +20,7 @@ then
     if [ -d $student_id ]
     then
       cd $student_id
-      GIT_SSH_COMMAND="ssh -i $key_file" git pull $url master
+      GIT_SSH_COMMAND="ssh -i ../$key_file" git pull $url master
       cd ../
     else
       GIT_SSH_COMMAND="ssh -i $key_file" git clone $url
