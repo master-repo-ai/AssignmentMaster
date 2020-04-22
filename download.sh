@@ -24,7 +24,12 @@ then
       echo 'Existing git removed'
     fi
     url="git@github.com:master-repo-ai/$student_id.git"
-    GIT_SSH_COMMAND="ssh -i $key_file" git clone $url
+    if [ -d $student_id ]
+    then
+      GIT_SSH_COMMAND="ssh -i $key_file" git pull $url master
+    else
+      GIT_SSH_COMMAND="ssh -i $key_file" git clone $url
+    fi
   else
     echo 'Key not found'
   fi
