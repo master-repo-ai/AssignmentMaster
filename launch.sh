@@ -5,6 +5,7 @@ cd /home/jovyan/
 # even if you're only cloning
 export GIT_COMMITTER_NAME=anonymous
 export GIT_COMMITTER_EMAIL=anon@localhost
+ssh-keyscan github.com >> ~/.ssh/known_hosts
 
 git clone https://github.com/master-repo-ai/AssignmentMaster.git
 cd AssignmentMaster
