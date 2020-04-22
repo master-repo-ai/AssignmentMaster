@@ -7,7 +7,7 @@ export GIT_COMMITTER_NAME=anonymous
 export GIT_COMMITTER_EMAIL=anon@localhost
 
 git clone https://github.com/master-repo-ai/AssignmentMaster.git
-cd AssignmentsMaster
+cd AssignmentMaster
 rm launch.sh
 
 cd ../
