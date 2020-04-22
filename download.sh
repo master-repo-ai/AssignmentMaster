@@ -9,9 +9,13 @@ then
   if [ -f $key_file ]
   then
     chmod 600 $key_file
-    ssh-keyscan github.com >> ~/.ssh/known_hosts
     eval "$(ssh-agent -s)"
     ssh-add $key_file
+    if [ ! -d ~/.ssh ]
+    then
+      mkdir ~/.ssh
+    fi
+    ssh-keyscan github.com >> ~/.ssh/known_hosts
     if [ ! -d .git ]
     then
       echo 'No existing git found'
